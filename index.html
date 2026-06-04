@@ -2,46 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Frontend Mentor | Results summary component</title>
+  <title>Frontend Mentor | Results Summary Component</title>
+  <meta name="description" content="A clean, responsive results summary component built with semantic HTML, BEM CSS, and dynamic JSON data parsing.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Frontend Mentor | Results Summary Component">
+  <meta property="og:description" content="Responsive results summary card implementation featuring semantic HTML5 structure, BEM CSS guidelines, and fully asynchronous dynamic data formatting.">
+  <meta property="og:image" content="./design/desktop-design.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Frontend Mentor | Results Summary Component">
+  <meta name="twitter:description" content="Responsive results summary card implementation featuring semantic HTML5 structure, BEM CSS guidelines, and fully asynchronous dynamic data formatting.">
+  <meta name="twitter:image" content="./desktop-design.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  Your Result
-  76
-  of 100
+  <main class="results-container">
+    <article class="results-card">
+      
+      <section class="results-card__score-panel">
+        <h1 class="results-card__title">Your Result</h1>
+        
+        <div class="results-card__circle" aria-label="Calculating your score...">
+          <span class="results-card__big-num" id="js-main-score">--</span>
+          <span class="results-card__total-num">of 100</span>
+        </div>
+        
+        <div class="results-card__feedback">
+          <p class="results-card__grade">Great</p>
+          <p class="results-card__description">
+            You scored higher than 65% of the people who have taken these tests.
+          </p>
+        </div>
+      </section>
 
-  Great
-  You scored higher than 65% of the people who have taken these tests.
-  
-  Summary
+      <section class="results-card__summary-panel">
+        <h2 class="results-card__title results-card__title--dark">Summary</h2>
+        
+        <div class="results-card__items-list" id="js-summary-list">
+          <div class="summary-row summary-row--reaction">
+            <div class="summary-row__label-group">
+              <img class="summary-row__icon" src="./assets/images/icon-reaction.svg" alt="" aria-hidden="true">
+              <span class="summary-row__name">Reaction</span>
+            </div>
+            <p class="summary-row__score-display">
+              <span class="summary-row__earned-score">80</span> <span class="summary-row__max-score">/ 100</span>
+            </p>
+          </div>
+          <div class="summary-row summary-row--memory">
+            <div class="summary-row__label-group">
+              <img class="summary-row__icon" src="./assets/images/icon-memory.svg" alt="" aria-hidden="true">
+              <span class="summary-row__name">Memory</span>
+            </div>
+            <p class="summary-row__score-display">
+              <span class="summary-row__earned-score">92</span> <span class="summary-row__max-score">/ 100</span>
+            </p>
+          </div>
+          <div class="summary-row summary-row--verbal">
+            <div class="summary-row__label-group">
+              <img class="summary-row__icon" src="./assets/images/icon-verbal.svg" alt="" aria-hidden="true">
+              <span class="summary-row__name">Verbal</span>
+            </div>
+            <p class="summary-row__score-display">
+              <span class="summary-row__earned-score">61</span> <span class="summary-row__max-score">/ 100</span>
+            </p>
+          </div>
+          <div class="summary-row summary-row--visual">
+            <div class="summary-row__label-group">
+              <img class="summary-row__icon" src="./assets/images/icon-visual.svg" alt="" aria-hidden="true">
+              <span class="summary-row__name">Visual</span>
+            </div>
+            <p class="summary-row__score-display">
+              <span class="summary-row__earned-score">72</span> <span class="summary-row__max-score">/ 100</span>
+            </p>
+          </div>
+        </div>
 
-  Reaction
-  80 / 100
+        <button class="results-card__button">Continue</button>
+      </section>
 
-  Memory
-  92 / 100
+    </article>
+  </main>
 
-  Verbal
-  61 / 100
-
-  Visual
-  72 / 100
-
-  Continue
-  
   <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/Henrydevlab">Henry</a>.
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
