@@ -1,0 +1,245 @@
+/* --- Custom Variables & Palette Setup --- */
+:root {
+  /* Colors */
+  --clr-primary-red: hsl(0, 100%, 67%);
+  --clr-primary-yellow: hsl(39, 100%, 56%);
+  --clr-primary-teal: hsl(166, 100%, 37%);
+  --clr-primary-blue: hsl(234, 85%, 45%);
+
+  --clr-neutral-white: hsl(0, 0%, 100%);
+  --clr-neutral-pale-blue: hsl(221, 100%, 96%);
+  --clr-neutral-lavender: hsl(241, 100%, 89%);
+  --clr-neutral-dark-blue: hsl(224, 30%, 27%);
+
+  /* Gradients */
+  --grad-panel-bg: linear-gradient(to bottom, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+  --grad-circle-bg: linear-gradient(to bottom, hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+
+  /* Typography */
+  --ff-sans: 'Hanken Grotesk', sans-serif;
+  --fs-body: 1.125rem;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+}
+
+/* --- Document Setup and Reset --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-body);
+  background-color: var(--clr-neutral-white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Layout Centering Module --- */
+.results-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* --- BEM Structural Layout Component (.results-card) --- */
+.results-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--clr-neutral-white);
+}
+
+.results-card__score-panel {
+  background: var(--grad-panel-bg);
+  color: var(--clr-neutral-white);
+  padding: 2.5rem 2.5rem 3rem 2.5rem;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.results-card__summary-panel {
+  padding: 1.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.results-card__title {
+  font-size: 1.15rem;
+  font-weight: var(--fw-bold);
+  color: var(--clr-neutral-lavender);
+}
+
+.results-card__title--dark {
+  color: var(--clr-neutral-dark-blue);
+}
+
+.results-card__circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--grad-circle-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.results-card__big-num {
+  font-size: 3.5rem;
+  font-weight: var(--fw-extra-bold);
+  line-height: 1.1;
+}
+
+.results-card__total-num {
+  font-size: 0.9rem;
+  color: var(--clr-neutral-lavender);
+  opacity: 0.7;
+}
+
+.results-card__feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.results-card__grade {
+  font-size: 1.5rem;
+  font-weight: var(--fw-bold);
+}
+
+.results-card__description {
+  font-size: 0.95rem;
+  color: var(--clr-neutral-lavender);
+  line-height: 1.4;
+}
+
+.results-card__items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Interactive States Rules */
+.results-card__button {
+  background-color: var(--clr-neutral-dark-blue);
+  color: var(--clr-neutral-white);
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: var(--fw-bold);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  outline: none;
+}
+
+.results-card__button:hover,
+.results-card__button:focus-visible {
+  background: var(--grad-panel-bg);
+}
+
+/* --- Shared Presentation Rows (.summary-row) --- */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+}
+
+.summary-row__label-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: var(--fw-bold);
+}
+
+.summary-row__score-display {
+  color: hsl(224, 30%, 65%);
+  font-weight: var(--fw-bold);
+}
+
+.summary-row__earned-score {
+  color: var(--clr-neutral-dark-blue);
+}
+
+/* Specialized Modifier Rows utilizing opacity backgrounds */
+.summary-row--reaction {
+  background-color: hsla(0, 100%, 67%, 0.06);
+  color: var(--clr-primary-red);
+}
+.summary-row--memory {
+  background-color: hsla(39, 100%, 56%, 0.06);
+  color: var(--clr-primary-yellow);
+}
+.summary-row--verbal {
+  background-color: hsla(166, 100%, 37%, 0.06);
+  color: var(--clr-primary-teal);
+}
+.summary-row--visual {
+  background-color: hsla(234, 85%, 45%, 0.06);
+  color: var(--clr-primary-blue);
+}
+
+/* Attribution footer alignment */
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+.attribution a { color: var(--clr-primary-blue); }
+
+/* --- Responsive Layout Configurations (Desktop) --- */
+@media (min-width: 650px) {
+  body {
+    background-color: var(--clr-neutral-pale-blue);
+  }
+
+  .results-card {
+    flex-direction: row;
+    max-width: 736px;
+    border-radius: 2rem;
+    box-shadow: 0 30px 60px rgba(61, 108, 236, 0.1);
+    overflow: hidden;
+  }
+
+  .results-card__score-panel {
+    flex: 1;
+    border-radius: 2rem;
+    padding: 2.5rem 3.5rem 3.5rem 3.5rem;
+    gap: 2rem;
+  }
+
+  .results-card__circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .results-card__big-num {
+    font-size: 4.5rem;
+  }
+
+  .results-card__grade {
+    font-size: 2rem;
+  }
+
+  .results-card__summary-panel {
+    flex: 1;
+    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+    gap: 1.75rem;
+  }
+}
